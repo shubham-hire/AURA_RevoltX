@@ -1,0 +1,295 @@
+<!-- Black -->
+<button 
+  onclick="addToCart('RevoltX Metallic Black', 1999, 'Anarc-black-1.webp')" 
+  id="button-1">
+  Add to cart
+</button>
+
+<!-- White -->
+<button 
+  onclick="addToCart('RevoltX Pearl White', 1999, 'Anarc-frost-1.webp')" 
+  id="button-2">
+  Add to cart
+</button>
+
+<!-- Green -->
+<button 
+  onclick="addToCart('RevoltX Earthy Green', 1999, 'Anarc-earthy-1.webp')" 
+  id="button-3">
+  Add to cart
+</button>
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Your Cart - AURA</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f4f4f4;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .cart-container {
+      max-width: 800px;
+      margin: auto;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      padding: 24px;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 24px;
+      color: #333;
+    }
+
+    .cart-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 15px;
+    }
+
+    .cart-item img {
+      width: 100px;
+      height: auto;
+      border-radius: 8px;
+      margin-right: 20px;
+    }
+
+    .item-details {
+      flex: 1;
+    }
+
+    .item-name {
+      font-size: 18px;
+      font-weight: 600;
+      color: #222;
+    }
+
+    .item-price {
+      font-size: 16px;
+      color: #555;
+      margin-top: 4px;
+    }
+
+    .total {
+      text-align: right;
+      font-size: 20px;
+      font-weight: bold;
+      margin-top: 20px;
+      color: #111;
+    }
+
+    .checkout-btn {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      margin-top: 30px;
+      background: #0d6efd;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .checkout-btn:hover {
+      background: #084cdf;
+    }
+  </style>
+</head>
+<body>
+  <div class="cart-container">
+    <h2>Your Cart</h2>
+    <div id="cart-items"></div>
+    <div class="total" id="cart-total">Total: ₹0</div>
+    <button class="checkout-btn">Proceed to Checkout</button>
+  </div>
+
+  <script>
+    const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+    const cartItemsContainer = document.getElementById('cart-items');
+    const totalPriceContainer = document.getElementById('cart-total');
+
+    let total = 0;
+
+    cartItems.forEach(item => {
+      const itemDiv = document.createElement('div');
+      itemDiv.className = 'cart-item';
+      itemDiv.innerHTML = `
+        <img src="${item.image}" alt="${item.name}">
+        <div class="item-details">
+          <div class="item-name">${item.name}</div>
+          <div class="item-price">₹${item.price}</div>
+        </div>
+      `;
+      cartItemsContainer.appendChild(itemDiv);
+      total += item.price;
+    });
+
+    totalPriceContainer.textContent = `Total: ₹${total}`;
+  </script>
+</body>
+</html>
+
+
+<div class="add-btn" onclick="addToCart('Chrome Silver Strap', 999, 'chrome_silver.png')">+</div>
+<div class="add-btn" onclick="addToCart('Charcoal Black Strap', 1199, 'charcoal_black.png')">+</div>
+
+
+<!-- Hero Section -->
+<section id="hero" class="hero">
+  <h1>Welcome to AURA RevoltX</h1>
+  <p>Smart. Sleek. Revolutionary.</p>
+</section>
+
+<!-- Scroll Prompt Div -->
+<div class="scroll-prompt">
+  <a href="#features">↓ Scroll down for more features</a>
+</div>
+
+<!-- Features Section -->
+<section id="features" class="features">
+  <h2>Features</h2>
+  <ul>
+    <li>Heart Rate Monitor</li>
+    <li>Sleep Tracker</li>
+    <li>Customizable Straps</li>
+    <li>Water Resistant</li>
+  </ul>
+</section>
+
+
+
+html {
+  scroll-behavior: smooth;
+}
+
+.hero {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #111;
+  color: white;
+  text-align: center;
+}
+
+.scroll-prompt {
+  background: #222;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+  font-size: 1.2rem;
+}
+
+.scroll-prompt a {
+  color: #fff;
+  text-decoration: none;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);  
+  }
+  40% {
+    transform: translateY(10px); 
+  }
+  60% {
+    transform: translateY(5px); 
+  }
+}
+
+.features {
+  padding: 60px 20px;
+  background: #f9f9f9;
+  color: #333;
+}
+ <!-- Scroll prompt revise -->
+
+ html {
+  scroll-behavior: smooth;
+}
+
+.hero {
+  height: 100vh;
+  background: #111;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative; /* To allow positioning of child elements */
+}
+
+.scroll-prompt {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.1);
+  padding: 10px 20px;
+  border-radius: 30px;
+  backdrop-filter: blur(5px);
+}
+
+.scroll-prompt a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translate(-50%, 0);
+  }
+  40% {
+    transform: translate(-50%, 10px);
+  }
+  60% {
+    transform: translate(-50%, 5px);
+  }
+}
+
+.features {
+  padding: 60px 20px;
+  background: #f9f9f9;
+  color: #333;
+}
+
+
+
+
+<!-- In your <head> -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <!-- Before </body> -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>AOS.init();</script>
+  
+
+  <div data-aos="fade-up" data-aos-delay="200" data-aos-duration="700" data-aos-offset="100">
+    <h2>RevoltX Features</h2>
+    <p>Next-gen technology. Seamless design. Always connected.</p>
+    <button>Explore Now</button>
+  </div>
+  
+
+
+  <div data-aos="fade" data-aos-duration="700">
+    <h2>RevoltX Features</h2>
+    <p>Next-gen technology. Seamless design.</p>
+  </div>
+  

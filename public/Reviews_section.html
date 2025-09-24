@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reviews Section</title>
+    <link rel="stylesheet"
+        href="https://fontawesome.com/icons/square-x-twitter?f=brands&s=solid&pc=%23ffffff&sc=%23ffffff">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* navigation bar  */
+        .navbar {
+            display: flex;
+            position: fixed;
+            justify-content: space-between;
+            align-items: center;
+            top: 0;
+            width: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 15px;
+            /* background: rgb(169, 231, 215); */
+            background: gainsboro;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            /* padding-left: 22px; */
+            margin-left: 35px;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 50px;
+        }
+
+        .nav-links li a {
+            text-decoration: none;
+            border-radius: 20px;
+            padding: 8px 20px;
+            color: black;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+
+        .nav-links li a.active {
+            color: white;
+            background-color: black;
+        }
+
+        .nav-links li a:hover {
+            color: white;
+            background-color: black;
+
+        }
+
+        .nav-icons {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-right: 20px;
+        }
+
+        .icon {
+            width: 20px;
+            cursor: pointer;
+        }
+
+        .icon:hover {
+            transform: scale(1.2);
+            transition-duration: 0.5s;
+        }
+
+        .buy-btn {
+            background: #4B0082;
+            color: white;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .buy-btn:hover {
+            transition-duration: 0.5s;
+            background: #35006b;
+            scale: 1.1;
+        }
+
+        /* Reviews section aka Property 5 */
+        .reviews-section {
+            position: relative;
+            height: 100vh;
+            /* display: flex; */
+            /* top: -20px; */
+            background: whitesmoke;
+        }
+
+        /* .heading {
+            width: 100%;
+            display: flex;
+            position: absolute;
+            justify-content: center;
+            align-items: center;
+            top: 15%;
+        } */
+
+        .reviews-section h2 {
+            color: black;
+            display: flex;
+            position: relative;
+            margin-top: 0px;
+            margin-bottom: 20px;
+            justify-content: center;
+            top: 200px;
+            font-size: 60px;
+            cursor: default;
+        }
+
+        .Box-section {
+            display: flex;
+            position: relative;
+            top: 230px;
+            justify-content: space-around;
+            align-items: center;
+            flex-direction: row;
+            flex-wrap: wrap;
+            row-gap: 20px;
+            /* column-gap: 0px; */
+            /* padding: 0; */
+
+        }
+
+        .boxes {
+            /* border: 2px solid red; */
+            background-color: white;
+            width: 350px;
+            height: 225px;
+            border-radius: 15px;
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+            transition-timing-function: ease-in-out;
+            transition-duration: 0.5s;
+        }
+
+        .boxes:hover {
+            transform: scale(1.1);
+        }
+
+        .top-data1 {
+            position: relative;
+            width: 327px;
+            top: 15px;
+            height: 50px;
+            /* border: 2px solid #333; */
+            padding: 10px;
+            text-align: center;
+        }
+
+        .top-data1 p {
+            position: relative;
+            top: -10px;
+        }
+
+        .top-data1 img {
+            position: absolute;
+            top: -10px;
+            left: 18px;
+            width: 80px;
+            /* Set image width */
+            height: auto;
+            /* Maintain aspect ratio */
+            border-radius: 97px;
+            transform: scale(0.7);
+        }
+
+        /* Manipulating childs */
+        .boxes:nth-of-type(3) .top-data1 p {
+            left: -15px;
+
+        }
+
+        .boxes:nth-of-type(4) .top-data1 p {
+            left: -10px;
+
+        }
+
+        .boxes:nth-of-type(6) .top-data1 p {
+            left: -22px;
+
+        }
+
+        .boxes:nth-of-type(7) .top-data1 p {
+            left: -23px;
+
+        }
+
+        .top-data1 p a {
+            text-decoration: none;
+            color: black;
+        }
+
+        /* 5 Star Adjustment */
+        #star {
+            position: absolute;
+            top: 35px;
+            left: 120px;
+            transform: scale(1.2);
+        }
+
+        /* Description */
+        .description {
+            position: relative;
+            height: 110px;
+            margin: 20px;
+            top: 9px;
+            /* left: 20px; */
+            /* border: 2px solid red; */
+        }
+
+        /* Scroll Behaviour */
+        .scroll-prompt {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: black;
+            padding: 10px 20px;
+            border-radius: 30px;
+            /* backdrop-filter: blur(5px); */
+            animation: bounce 2s infinite;
+
+        }
+
+        .scroll-prompt a {
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
+                transform: translate(-50%, 0);
+            }
+
+            40% {
+                transform: translate(-50%, 10px);
+            }
+
+            60% {
+                transform: translate(-50%, 5px);
+            }
+        }
+
+        /* Leave us a review section  */
+
+        .Review2 {
+            display: flex;
+            height: 100vh;
+            background: url(Watch-Stone.jpg) no-repeat center center/cover;
+            /* background: url(); */
+        }
+
+        .Content h2 {
+            display: flex;
+            position: relative;
+            top: 20%;
+            left: 15%;
+            color: white;
+            font-size: 65px;
+        }
+
+        .Content p {
+            position: relative;
+            top: 17%;
+            left: 15%;
+            color: #ffffffa6;
+            font-size: 26px;
+        }
+
+        #family {
+            color: #dfd6d6;
+        }
+
+        .Content a {
+            display: flex;
+            position: relative;
+            background-color: white;
+            color: black;
+            top: 20%;
+            left: 12%;
+            width: 30%;
+            height: 7%;
+            margin: 23px;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            border-radius: 35px;
+            font-size: 20px;
+        }
+
+        .Content a:hover {
+            background-color: rgba(255, 255, 255, 0.961);
+        }
+
+        /* footer */
+
+        .footer {
+            background-color: #2C3E50;
+            color: white;
+            padding: 40px 0;
+            /* margin-top: -20px; */
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            max-width: 1100px;
+            margin: auto;
+            flex-wrap: wrap;
+        }
+
+        .footer-section {
+            flex: 1;
+            min-width: 200px;
+            margin: 20px;
+        }
+
+        .footer-section-company {
+            max-width: 300px;
+        }
+
+        .footer-section-company p {
+            opacity: 0.7;
+        }
+
+        .footer-section-products {
+            position: relative;
+            left: 50px;
+        }
+
+        .footer-section h4 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .footer-section-company h4 {
+            font-size: 25px;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-section-products ul li a,
+        .footer-section-links ul li a {
+            text-decoration: none;
+            color: white;
+        }
+
+        .footer-section-products ul li a:hover,
+        .footer-section-links ul li a:hover {
+            color: wheat;
+        }
+
+
+        .footer-section-contact ul li {
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+        }
+
+        .footer-section-contact ul li i {
+            margin-right: 10px;
+        }
+
+        .social-icons {
+            margin-top: 10px;
+        }
+
+        .social-icons i {
+            font-size: 20px;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+
+        .social-icons a {
+            text-decoration: none;
+            color: white;
+        }
+
+        .social-icons a:nth-child(1):hover {
+            color: rgb(62, 62, 247);
+            /* Facebook */
+        }
+
+        .social-icons a:nth-child(2):hover {
+            color: rgb(0, 94, 255);
+            /* Twitter */
+        }
+
+        .social-icons a:nth-child(3):hover {
+            color: red;
+            /* Google */
+        }
+
+        .social-icons a:nth-child(4):hover {
+            color: palevioletred;
+            /* Instagram */
+        }
+
+        .copyright {
+            margin-top: 20px;
+            font-size: 14px;
+            opacity: 0.7;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="logo">AURA</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="RevoltX_watch_section.html">RevoltX Watch</a></li>
+            <li><a href="strapsection.html">X Strap</a></li>
+            <li><a href="Reviews_section.html" class="active">Reviews</a></li>
+        </ul>
+        <div class="nav-icons">
+            <button class="buy-btn" onclick="window.location.href='RevoltX_watch_section.html';">Buy Now</button>
+            <a>
+                <img id="login" src="login.png" alt="User" class="icon" onclick="redirecttologin()" loading="lazy">
+                <img id="cart" src="cart.png" alt="cart" class="icon" onclick="redirecttocart()" loading="lazy">
+            </a>
+        </div>
+    </nav>
+
+    <!-- Property 6  (Reviews section) -->
+    <section class="reviews-section">
+        <div class="heading">
+            <h2>What Our Customers Say ...</h2>
+        </div>
+        <div class="Box-section">
+            <div class="boxes">
+
+                <!-- box 1 -->
+                <div class="top-data1">
+                    <img src="person1.jpeg" alt="" loading="lazy">
+                    <p><a
+                            href="https://www.instagram.com/shreyash_kakade?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==">Shreyash
+                            Kakde</a></p>
+                    <img src="5star.png" alt="" id="star" loading="lazy">
+                </div>
+                <div class="description">
+                    <p>"The AURA RevoltX is a masterpiece of modern technology! display is crisp, the battery lasts
+                        forever, and the interface is incredibly smooth.Perfect blend of style and performance.
+                        Highly
+                        recommended for anyone who loves innovation!"</p>
+                </div>
+            </div>
+
+            <!-- Box 2 -->
+            <div class="boxes">
+                <div class="top-data1">
+                    <img src="person2.jpeg" alt="" loading="lazy">
+                    <p><a
+                            href="https://www.instagram.com/_shubham_bhoye_55?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==">Shubham
+                            Bhoye</a></p>
+                    <img src="5star.png" alt="" id="star" loading="lazy">
+                </div>
+                <div class="description">
+                    <p> "China maal but works well. At least it shows time , well slightly inaccurate .
+                        This is a paid
+                        review. "</p>
+                </div>
+            </div>
+
+            <!-- Box 3 -->
+            <div class="boxes">
+                <div class="top-data1">
+                    <img src="person3.jpeg" alt="" loading="lazy">
+                    <p><a href="https://www.instagram.com/rohit_k_04_/?utm_source=ig_web_button_share_sheet">Rohit
+                            Khond</a></p>
+                    <img src="5star.png" alt="" id="star" loading="lazy">
+                </div>
+                <div class="description">
+                    <p>"This watch has become my fitness companion! The step tracking, heart rate monitor, and
+                        workout
+                        modes keep me motivated every day."</p>
+                </div>
+            </div>
+
+            <!-- Box 4 -->
+            <div class="boxes">
+                <div class="top-data1">
+                    <img src="Danish Bhai.jpeg" alt="" loading="lazy">
+                    <p><a
+                            href="https://www.instagram.com/danish_zehienn?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==">Danish
+                            Zehen</a></p>
+                    <img src="5star.png" alt="" id="star" loading="lazy">
+                </div>
+                <div class="description">
+                    <p>"I love this watch! It helps me stay on top of my classes with reminders and alarms, and the
+                        customizable watch faces let me express my style."</p>
+                </div>
+            </div>
+
+            <!-- Box 5 -->
+            <div class="boxes">
+                <div class="top-data1">
+                    <img src="person5.jpeg" alt="" loading="lazy">
+                    <p><a href="https://bhushangholap.wordpress.com/">Bhushan Gholap</a></p>
+                    <img src="5star.png" alt="" id="star" loading="lazy">
+                </div>
+                <div class="description">
+                    <p>"Feels futuristic! Smooth UI, vibrant display, and seamless phone sync."</p>
+                </div>
+            </div>
+
+            <!-- Box 6 -->
+            <div class="boxes">
+                <div class="top-data1">
+                    <img src="Chiku.jpeg" alt="" loading="lazy">
+                    <p><a
+                            href="https://www.instagram.com/virat.kohli?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==">Virat
+                            Kohli</a></p>
+                    <img src="5star.png" alt="" id="star" loading="lazy">
+                </div>
+                <div class="description">
+                    <p>Best product I've ever seen in my life.This watch shows time . Also aluminium frame makes it
+                        quite durable. <br> Brightness is also very good . A bit overpriced though</p>
+                </div>
+
+            </div>
+
+            <!-- Box 7 -->
+            <div class="boxes">
+                <div class="top-data1">
+                    <img src="Thala.jpeg" alt="" loading="lazy">
+                    <p><a
+                            href="https://www.instagram.com/mahi7781?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==">MS
+                            Dhoni</a></p>
+                    <img src="5star.png" alt="" id="star" loading="lazy">
+                </div>
+                <div class="description">
+                    <p>"Absolutely stunning design! This watch is a fashion statement. The sleek body, customizable
+                        watch faces, and premium finish make it a perfect accessory for any outfit."</p>
+                </div>
+            </div>
+
+
+            <!-- Box 8 -->
+            <div class="boxes">
+                <div class="top-data1">
+                    <img src="person8.jpeg" alt="" loading="lazy">
+                    <p><a
+                            href="https://www.instagram.com/genshinimpact?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==">Kamisato
+                            Ayaka</a></p>
+                    <img src="5star.png" alt="" id="star" loading="lazy">
+                </div>
+                <div class="description">
+                    <p>"As fleeting as cherry blossoms, time waits for no one—but the AURA RevoltX keeps me always
+                        prepared. Elegant, precise, and reliable—much like the Traveler themselves. A refined
+                        companion,
+                        worthy of any noble's wrist."</p>
+                </div>
+            </div>
+        </div>
+        <!-- Scroll Prompt Div -->
+        <div class="scroll-prompt">
+            <a href="#features">Leave us a review ⇓</a>
+        </div>
+        <!-- End of scroll prompt -->
+    </section>
+
+    <!-- Leave us a review section -->
+    <section id="features" class="Review2">
+        <div class="Content">
+            <h2>Leave us a Review !</h2>
+            <p>Your Review will help us to Reimagine and </p>
+            <p>come with better Products.</p>
+            <p id="family">Thank you for being part of the AURA family.</p>
+            <a
+                href="https://docs.google.com/forms/d/e/1FAIpQLSeoErClN36a_E_cV2pdzaud_gtIrI4PrFzk__Z5bpS5woe8RA/viewform?usp=dialog">Review
+                us</a>
+        </div>
+    </section>
+
+    <!-- footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-section footer-section-company">
+                <h4>AURA</h4>
+                <p>"We are committed to providing top-quality products to enhance your experience. Your satisfaction
+                    is
+                    our priority."</p>
+                <p class="copyright">&copy; 2025 Copyright: Aura.com</p>
+            </div>
+            <div class="footer-section footer-section-products">
+                <h4>Project Members</h4>
+                <ul>
+                    <!-- Shubham Hire Email -->
+                    <li><a href="https://mail.google.com/mail/?view=cm&fs=1&to=shubham.hire2006@gmail.com"
+                            target="_blank"><i class="fas fa-envelope"></i> Shubham Hire</a></li>
+                    <!-- Shreyash Kakde Email -->
+                    <li><a href="https://mail.google.com/mail/?view=cm&fs=1&to=shreyashkakade1455@gmail.com"
+                            target="_blank"><i class="fas fa-envelope"></i> Shreyash Kakde</a></li>
+                    <!-- Shubham Bhoye Email -->
+                    <li><a href="https://mail.google.com/mail/?view=cm&fs=1&to=Shubhbhoye55@gmail.com"
+                            target="_blank"><i class="fas fa-envelope"></i> Shubham Bhoye</a></li>
+                    <!-- Rohit Khond Email -->
+                    <li><a href="https://mail.google.com/mail/?view=cm&fs=1&to=rohitkhond2004@gmail.com"
+                            target="_blank"><i class="fas fa-envelope"></i> Rohit Khond</a></li>
+                </ul>
+            </div>
+            <div class="footer-section footer-section-links">
+                <h4>USEFUL LINKS</h4>
+                <ul>
+                    <li><a href="#Home">Home</a></li>
+                    <li><a href="strapsection.html">X Strap</a></li>
+                    <li><a href="RevoltX_watch_section.html">RevoltX Watch</a>
+                    <li><a href="Reviews_section.html">Reviews</a>
+                    <li><a href="loginpage2.html">Login</a></li>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer-section footer-section-contact">
+                <h4>CONTACT US</h4>
+                <ul>
+                    <li><i class="fas fa-home"></i>Nashik - 422003, India</li>
+                    <li><i class="fas fa-envelope"></i>shubham.hire2006@gmail.com</li>
+                    <li><i class="fas fa-phone"></i>+91 8767345768</li>
+                    <li><i class="fas fa-phone"></i>+91 8767345768</li>
+                </ul>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/share/162YjDKAVD/"><i class="fab fa-facebook"></i></a>
+                    <a href=""><i class="fab fa-twitter"></i></a>
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=shubham.hire2006@gmail.com"><i
+                            class="fab fa-google"></i></a>
+                    <a href="https://www.instagram.com/__.shubbhu.__/"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>

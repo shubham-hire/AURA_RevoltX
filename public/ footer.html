@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Footer Design</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .footer {
+            background-color: #2C3E50;
+            color: white;
+            padding: 40px 0;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            max-width: 1100px;
+            margin: auto;
+            flex-wrap: wrap;
+        }
+
+        .footer-section {
+            flex: 1;
+            min-width: 200px;
+            margin: 20px;
+        }
+
+        .footer-section-company {
+            max-width: 300px;
+        }
+
+        .footer-section-company p {
+            opacity: 0.7;
+        }
+
+        .footer-section-products {
+            position: relative;
+            left: 50px;
+        }
+
+        .footer-section h4 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .footer-section-company h4 {
+            font-size: 25px;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-section-products ul li a,
+        .footer-section-links ul li a {
+            text-decoration: none;
+            color: white;
+        }
+
+        .footer-section-products ul li a:hover,
+        .footer-section-links ul li a:hover {
+            color: wheat;
+        }
+
+
+        .footer-section-contact ul li {
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+        }
+
+        .footer-section-contact ul li i {
+            margin-right: 10px;
+        }
+
+        .social-icons {
+            margin-top: 10px;
+        }
+
+        .social-icons i {
+            font-size: 20px;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+
+        .social-icons a {
+            text-decoration: none;
+            color: white;
+        }
+
+        .social-icons a:nth-child(1):hover {
+            color: rgb(62, 62, 247);
+            /* Facebook */
+        }
+
+        .social-icons a:nth-child(2):hover {
+            color: skyblue;
+            /* Twitter */
+        }
+
+        .social-icons a:nth-child(3):hover {
+            color: red;
+            /* Google */
+        }
+
+        .social-icons a:nth-child(4):hover {
+            color: purple;
+            /* Instagram */
+        }
+
+        .copyright {
+            margin-top: 20px;
+            font-size: 14px;
+            opacity: 0.7;
+        }
+    </style>
+</head>
+
+<body>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-section footer-section-company">
+                <h4>AURA</h4>
+                <p>"We are committed to providing top-quality products to enhance your experience. Your satisfaction is
+                    our priority."</p>
+                <p class="copyright">&copy; 2025 Copyright: AURA.com</p>
+            </div>
+            <div class="footer-section footer-section-products">
+                <h4>Project Members</h4>
+                <ul>
+                    <li><a href="https://mail.google.com/mail/?view=cm&fs=1&to=shubham.hire2006@gmail.com"
+                            target="_blank"><i class="fas fa-envelope"></i> Shubham Hire</a></li>
+                    <!-- Shreyash Kakde Email -->
+                    <li><a href="https://mail.google.com/mail/?view=cm&fs=1&to=shreyashkakade1455@gmail.com"
+                            target="_blank"><i class="fas fa-envelope"></i> Shreyash Kakde</a></li>
+                    <!-- Shubham Bhoye Email -->
+                    <li><a href="https://mail.google.com/mail/?view=cm&fs=1&to=Shubhbhoye55@gmail.com"
+                            target="_blank"><i class="fas fa-envelope"></i> Shubham Bhoye</a></li>
+                    <!-- Rohit Khond Email -->
+                    <li><a href="https://mail.google.com/mail/?view=cm&fs=1&to=rohitkhond2004@gmail.com"
+                            target="_blank"><i class="fas fa-envelope"></i> Rohit Khond</a></li>
+                </ul>
+            </div>
+            <div class="footer-section footer-section-links">
+                <h4>USEFUL LINKS</h4>
+                <ul>
+                    <li><a href="#Home">Home</a></li>
+                    <li><a href="loginpage2.html">Login</a></li>
+                    <li><a href="strapsection.html">X strap</a></li>
+                    <li><a href="https://www.layers.shop/products/anarc?variant=46994527486189">RevoltX Watch</a></li>
+                </ul>
+            </div>
+            <div class="footer-section footer-section-contact">
+                <h4>CONTACT US</h4>
+                <ul>
+                    <li><i class="fas fa-home"></i> Nashik - 422003, India</li>
+                    <li><i class="fas fa-envelope"></i> shubham.hire2006@gmail.com</li>
+                    <li><i class="fas fa-phone"></i> +91 8767345768</li>
+                    <li><i class="fas fa-phone"></i> +91 8767345768</li>
+                </ul>
+                <div class="social-icons">
+                    <a href=""><i class="fab fa-facebook"></i></a>
+                    <a href=""><i class="fab fa-twitter"></i></a>
+                    <a href=""><i class="fab fa-google"></i></a>
+                    <a href=""><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
