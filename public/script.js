@@ -1,4 +1,5 @@
 // some necessary js function
+//mostly updates
 
 function redirecttologin() {
     let img = document.getElementById("login")
