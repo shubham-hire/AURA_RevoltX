@@ -1,3 +1,5 @@
+// some necessary js function
+
 function redirecttologin() {
     let img = document.getElementById("login")
     window.location.href = "loginpage2.html";
