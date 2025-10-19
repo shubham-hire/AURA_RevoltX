@@ -5,6 +5,7 @@ const app = express();
 const PORT = 3000;
 
 // Serve static files from the "public" folder
+//this is the path to public folder
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(express.json());
