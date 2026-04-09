@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+    <script src="script.js" defer></script>
+    <style>
+        *,
+        *:before,
+        *:after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            /* background-color: #181628; */
+            /* background: url(lmao2en.png) no-repeat center center/cover; */
+            background: url(AURA.jpg) no-repeat center center/cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            position: relative;
+            width: 400px;
+            animation: FadeIn 2s ease-in-out;
+        }
+
+        @keyframes FadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20%);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .background .shape {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+        }
+
+        .shape:first-child {
+            background: linear-gradient(#1845ad, #23a2f6);
+            left: 72%;
+            top: -80px;
+            animation: lmao1 2s ease-in-out;
+            animation-delay: 2s;
+        }
+
+        /* @keyframes lmao1 {
+            to {
+                transform: translateY(-21%);
+            }
+        } */
+
+        .shape:last-child {
+            background: linear-gradient(to right, #ff512f, #f09819);
+            /* right: 72%; */
+            bottom: -80px;
+            animation: lmao2 2s ease-in-out ;
+            animation-delay: 3s;
+        }
+
+        /* @keyframes lmao2 {
+            from {
+                right: 72%;
+
+            } to {
+                right: -21%;
+            }
+        } */
+
+        .form-container {
+            background: rgba(255, 255, 255, 0.13);
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+            padding: 50px;
+            text-align: center;
+            box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+        }
+
+        h3 {
+            font-size: 32px;
+            color: #fff;
+        }
+
+        label {
+            display: block;
+            margin-top: 20px;
+            color: #fff;
+            font-weight: 500;
+        }
+
+        input {
+            width: 100%;
+            height: 50px;
+            margin-top: 8px;
+            padding: 0 10px;
+            border-radius: 5px;
+            border: none;
+            background: rgba(255, 255, 255, 0.07);
+            color: #fff;
+        }
+
+        input::placeholder {
+            color: white;
+            font-style: italic;
+        }
+
+        button {
+            /* display: block; */
+            margin-top: 30px;
+            width: 100%;
+            padding: 15px;
+            font-size: 18px;
+            font-weight: bold;
+            background: #fff;
+            color: #080710;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            /* text-decoration: none; */
+        }
+
+        .social {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .social a {
+            display: block;
+            text-decoration: none;
+            width: 100%;
+            padding: 10px;
+            text-align: center;
+            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.27);
+            color: #eaf0fb;
+            cursor: pointer;
+        }
+
+        .social div:hover {
+            background: rgba(255, 255, 255, 0.47);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="background">
+            <div class="shape"></div>
+            <div class="shape"></div>
+        </div>
+        <div class="form-container">
+            <h3>Login to AURA</h3>
+            <label for="username">Username</label>
+            <input type="text" placeholder="Email or Phone" id="username" required>
+            <label for="password">Password</label>
+            <input type="password" placeholder="Password" id="password" required>
+            <span id="errorMsg" style="color: red; display: none;"></span>
+            <button id="loginBtn">Log In</button>
+            <div class="social">
+                <a id="ToRegister" href="register.html" role="button" style="cursor: pointer;">
+                    Register
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- script -->
+    <script>
+        document.getElementById('loginBtn').addEventListener('click', async function (e) {
+            e.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            const response = await fetch('/login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ username, password })
+            });
+
+            const data = await response.json();
+            const errorMsg = document.getElementById('errorMsg');
+
+            if (response.ok) {
+                // alert(data.message);  ← gone!
+                window.location.href = 'index.html'; // Redirects silently
+            } else if (data.error === 'User not found') {
+                errorMsg.style.display = 'block';
+                errorMsg.textContent = 'User not found. Please register.';
+            } else if (data.error === 'Incorrect password') {
+                errorMsg.style.display = 'block';
+                errorMsg.textContent = 'Incorrect password. Please try again.';
+            } else {
+                errorMsg.style.display = 'block';
+                errorMsg.textContent = data.error;
+            }
+
+        });
+    </script>
+
+
+
+
+</body>
+
+</html>
